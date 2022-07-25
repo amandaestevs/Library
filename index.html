@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Library</title>
+</head>
+<body>
+    
+<header>
+    <div><p class="logo">Library</p></div>
+</header>
+
+<div class="main">
+<div class="books-container">
+    <div class="open-input-btn"><span>&#43;</span></div>
+    <div class="example-card card">
+        <h3 class="title">Harry Potter</h3>
+        <div class="flex"><p>Author:</p> <span>J.K Rowling</span></div>
+        <div class="flex"><p>Pages:</p> <span>200</span></div>
+        <div class="flex"><p>Status:</p> <p class="status">Not Read</p></div>
+        <div class="flex"><p>Have you read it?</p> 
+            <div>
+                <input type="checkbox" id="card-checkbox" class="toggle">
+                <label for="card-checkbox"></label>
+           </div>
+         </div>
+           <button class="delete-btn"><img src="icon/trash-can-solid.svg"></button>
+    </div>  
+</div>
+
+<div class="library-log">
+ <h3>Library Log</h3>
+ <div class="flex"><p>Total Books:</p><span class="total"></span></div>
+ <div class="flex"><p>Books Finished:</p><span class="finished"></span></div>
+ <div class="flex"><p>Pages:</p><span class="total-pages"></span></div>
+</div>
+</div>
+
+<div class="user-input-container">
+<form class="book-input">
+   <div class="flex"> <h3>Add New Book</h3><img class="close" src="icon/xmark-solid.svg" alt=""></div>
+   <div class="flex"><p>Book:</p><input class="titleInput" type="text" required></div>
+   <div class="flex"><p>Author</p><input class="authorInput" type="text" required></div>
+   <div class="flex"><p>Pages:</p><input class="pageInput" type="number" required></div>
+   <div class="flex"><p>Have you read it?</p>
+    <div class="toggle-container">
+        <input type="checkbox" id="checkbox" class="toggle toggle-input">
+        <label for="checkbox"></label>
+    </div></div>
+    <button class="add-btn" type="submit" value="submit">Add</a>
+</div>
+</form>
+</body>
+
+<script src="main.js"></script>
+</html>
