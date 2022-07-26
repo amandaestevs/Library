@@ -4,9 +4,6 @@ const openInputBtn = document.querySelector('.open-input-btn');
 const addBtn = document.querySelector('.add-btn');
 const booksContainer = document.querySelector('.books-container');  
 
-const cardCheckBox = document.querySelector('#card-checkbox');
-cardCheckBox.addEventListener('change', statusChanged);
-
 closeBtn.addEventListener('click', closeInput);
 openInputBtn.addEventListener('click', openInput);
 addBtn.addEventListener('click', addNewBook);
@@ -18,6 +15,8 @@ const deleteBtn = document.querySelectorAll('.delete-btn');
 let library = [];
 let currentBook = [];
 
+window.addEventListener('load', getStorage)
+
  function books(title, author, pages, id, readStatus){
   this.title = title
   this.author = author
@@ -25,7 +24,7 @@ let currentBook = [];
   this.id = id
   this.readStatus = readStatus
  }
-
+ 
 function addNewBook(){
   currentBook = []
   const titleInput = document.querySelector('.titleInput');
@@ -66,9 +65,10 @@ function addNewBook(){
   addCard();
   closeInput();
   clearBookInput();
+  saveBooks()
 }
   }
-
+  
  function addCard (){
   currentBook.forEach(book => {
     let title = book.title;
@@ -127,6 +127,7 @@ function statusChanged (event) {
       }
     })
       updateFinished();
+      saveBooks();
   }
 
 function closeInput(){
@@ -170,6 +171,7 @@ function updateArray(cardId){
   updateTotal()
   updatePages()
   updateFinished()
+  saveBooks()
 }
 
   // library log
@@ -209,5 +211,20 @@ function updatePages() {
   })
   pageArray = []
 }}
+
+function saveBooks (){
+ localStorage.setItem('library', JSON.stringify(library))
+}
+
+function getStorage(){
+ let savedLibrary = JSON.parse(localStorage.getItem('library'));
+ currentBook = savedLibrary;
+ addCard()
+ currentBook = []
+ library = savedLibrary;
+ updateTotal()
+ updatePages()
+ updateFinished()
+}
 
 
